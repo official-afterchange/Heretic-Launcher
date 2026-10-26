@@ -1,0 +1,110 @@
+{
+  "app": {
+    "name": "Butterfly Launcher",
+    "version": "1.0.0",
+    "build": "Stable",
+    "year": "2024",
+    "dir": "rtl"
+  },
+  "ui": {
+    "home": {
+      "play": "تشغيل",
+      "searching": "جارٍ البحث...",
+      "news": "الأخبار",
+      "server": "الخادم",
+      "players": "اللاعبون",
+      "ping": "Ping",
+      "status": "الحالة"
+    },
+    "info": {
+      "header": {
+        "name": "AfterChange__",
+        "role": "مطوّر ومصمّم"
+      },
+      "content": {
+        "overview": "نظرة عامة",
+        "description": "Butterfly Launcher هو حل متكامل متصل بخادم ماينكرافت، تم تصميمه لتبسيط الوصول وإعدادات اللاعبين.",
+        "stack": "مبني باستخدام Electron و Node.js، ويقوم بمزامنة التعديلات والموارد تلقائيًا عبر خادم Nginx."
+      },
+      "version": {
+        "title": "الإصدار الحالي",
+        "value": "V{{app.version}}",
+        "build_label": "الإصدار",
+        "build_value": "{{app.build}}",
+        "status": "مستقر"
+      }
+    },
+    "account": {
+      "title": "حسابي",
+      "description": "إدارة هويتك داخل اللعبة",
+      "skin": {
+        "overview": "معاينة السكين"
+      },
+      "user": {
+        "username": "اسم المستخدم",
+        "update": "تحديث"
+      }
+    },
+    "settings": {
+      "general": {
+        "title": "الإعدادات",
+        "description": "إدارة إعدادات اللعبة واللانشر"
+      },
+      "sync": {
+        "title": "المزامنة",
+        "description": "رابط مزامنة الخادم"
+      },
+      "mc_ip": {
+        "title": "IP خادم ماينكرافت",
+        "description": "عنوان IP للخادم من أجل الـ ping. اتركه فارغًا إذا لم يتم تهيئة خادم."
+      },
+      "folder": {
+        "title": "مجلد التثبيت",
+        "description": "مجلد تثبيت اللعبة"
+      },
+      "lang": {
+        "title": "اللغة",
+        "description": "لغة اللانشر"
+      },
+      "minecraft": {
+        "title": "إصدار ماينكرافت"
+      },
+      "loader": {
+        "title": "Loader"
+      },
+      "java": {
+        "title": "مسار Java التنفيذي",
+        "description": "اكتب 'java' لاستخدام Java الخاص بالنظام، أو أدخل مسارًا كاملاً لملف تنفيذي (javaw.exe)."
+      },
+      "ram": {
+        "title": "الذاكرة العشوائية القصوى",
+        "description": "قم بتخصيص المزيد من RAM لتحسين الأداء، ولكن تأكد من عدم تجاوز سعة نظامك."
+      },
+      "mods": {
+        "title": "التعديلات المحلية",
+        "description": "سيتم تحميل هذه التعديلات (ملفات .jar) بالإضافة إلى تعديلات الخادم. انقر أدناه لإضافة واحد.",
+        "add": "انقر هنا لاختيار ملفات .jar"
+      }
+    }
+  },
+  "status": {
+    "online": "متصل",
+    "offline": "غير متصل",
+    "average": "متوسط"
+  },
+  "system": {
+    "sync_url": "رابط مزامنة الخادم",
+    "mc_ip": "IP خادم ماينكرافت",
+    "folder": "مجلد تثبيت اللعبة",
+    "java_path": "مسار Java",
+    "ram_max": "الذاكرة القصوى المخصصة"
+  },
+  "footer": {
+    "not_affiliated": "غير تابع لـ Mojang Studios",
+    "copyright": "© {{app.year}} {{app.name}}"
+  },
+  "dynamic": {
+    "version_label": "الإصدار {{app.version}} (Build {{app.build}})",
+    "welcome": "مرحبًا {{username}}"
+  }
+}

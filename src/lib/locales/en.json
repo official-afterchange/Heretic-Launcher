@@ -1,0 +1,110 @@
+{
+  "app": {
+    "name": "Butterfly Launcher",
+    "version": "1.0.0",
+    "build": "Stable",
+    "year": "2024",
+    "dir": "ltr"
+  },
+  "ui": {
+    "home": {
+      "play": "PLAY",
+      "searching": "Searching...",
+      "news": "News",
+      "server": "Server",
+      "players": "Players",
+      "ping": "Ping",
+      "status": "Status"
+    },
+    "info": {
+      "header": {
+        "name": "AfterChange__",
+        "role": "Developer & Designer"
+      },
+      "content": {
+        "overview": "Overview",
+        "description": "Butterfly Launcher is an all-in-one solution connected to a Minecraft server, designed to simplify access and configuration for players.",
+        "stack": "Built with Electron and Node.js, it automatically syncs mods and resources via an Nginx server."
+      },
+      "version": {
+        "title": "Current Version",
+        "value": "V{{app.version}}",
+        "build_label": "Build",
+        "build_value": "{{app.build}}",
+        "status": "Stable"
+      }
+    },
+    "account": {
+      "title": "My Account",
+      "description": "Manage your in-game identity",
+      "skin": {
+        "overview": "Skin Preview"
+      },
+      "user": {
+        "username": "Username",
+        "update": "Update"
+      }
+    },
+    "settings": {
+      "general": {
+        "title": "Configuration",
+        "description": "Manage game and launcher settings"
+      },
+      "sync": {
+        "title": "Synchronization",
+        "description": "Server synchronization URL"
+      },
+      "mc_ip": {
+        "title": "Minecraft Server IP",
+        "description": "Server IP used for ping. Leave empty for a launcher without an initialized server."
+      },
+      "folder": {
+        "title": "Installation Folder",
+        "description": "Game installation directory"
+      },
+      "lang": {
+        "title": "Language",
+        "description": "Launcher language"
+      },
+      "minecraft": {
+        "title": "Minecraft Version"
+      },
+      "loader": {
+        "title": "Loader"
+      },
+      "java": {
+        "title": "Java Executable Path",
+        "description": "Use 'java' to use the system Java, or provide an absolute path to an executable (javaw.exe)."
+      },
+      "ram": {
+        "title": "Maximum RAM",
+        "description": "Allocate more RAM to improve performance, but make sure not to exceed your system's capacity."
+      },
+      "mods": {
+        "title": "Local Mods",
+        "description": "These mods (.jar files) will be loaded in addition to the server mods. Click below to add one.",
+        "add": "Click here to select .jar files"
+      }
+    }
+  },
+  "status": {
+    "online": "Online",
+    "offline": "Offline",
+    "average": "Average"
+  },
+  "system": {
+    "sync_url": "Server synchronization URL",
+    "mc_ip": "Minecraft server IP",
+    "folder": "Game installation folder",
+    "java_path": "Java path",
+    "ram_max": "Maximum allocated memory"
+  },
+  "footer": {
+    "not_affiliated": "Not affiliated with Mojang Studios",
+    "copyright": "© {{app.year}} {{app.name}}"
+  },
+  "dynamic": {
+    "version_label": "Version {{app.version}} (Build {{app.build}})",
+    "welcome": "Welcome {{username}}"
+  }
+}

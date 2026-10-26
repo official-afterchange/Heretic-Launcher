@@ -1,0 +1,110 @@
+{
+  "app": {
+    "name": "Butterfly Launcher",
+    "version": "1.0.0",
+    "build": "Stable",
+    "year": "2024",
+    "dir": "ltr"
+  },
+  "ui": {
+    "home": {
+      "play": "SPIELEN",
+      "searching": "Suche...",
+      "news": "Neuigkeiten",
+      "server": "Server",
+      "players": "Spieler",
+      "ping": "Ping",
+      "status": "Status"
+    },
+    "info": {
+      "header": {
+        "name": "AfterChange__",
+        "role": "Entwickler & Designer"
+      },
+      "content": {
+        "overview": "Übersicht",
+        "description": "Butterfly Launcher ist eine All-in-One-Lösung, die mit einem Minecraft-Server verbunden ist und den Zugriff sowie die Konfiguration für Spieler vereinfacht.",
+        "stack": "Basierend auf Electron und Node.js synchronisiert es automatisch Mods und Ressourcen über einen Nginx-Server."
+      },
+      "version": {
+        "title": "Aktuelle Version",
+        "value": "V{{app.version}}",
+        "build_label": "Build",
+        "build_value": "{{app.build}}",
+        "status": "Stabil"
+      }
+    },
+    "account": {
+      "title": "Mein Konto",
+      "description": "Verwalte deine In-Game-Identität",
+      "skin": {
+        "overview": "Skin-Vorschau"
+      },
+      "user": {
+        "username": "Benutzername",
+        "update": "Aktualisieren"
+      }
+    },
+    "settings": {
+      "general": {
+        "title": "Konfiguration",
+        "description": "Verwalte Spiel- und Launcher-Einstellungen"
+      },
+      "sync": {
+        "title": "Synchronisierung",
+        "description": "Server-Synchronisations-URL"
+      },
+      "mc_ip": {
+        "title": "Minecraft-Server-IP",
+        "description": "Server-IP für den Ping. Leer lassen, wenn kein Server initialisiert ist."
+      },
+      "folder": {
+        "title": "Installationsordner",
+        "description": "Installationsverzeichnis des Spiels"
+      },
+      "lang": {
+        "title": "Sprache",
+        "description": "Launcher-Sprache"
+      },
+      "minecraft": {
+        "title": "Minecraft-Version"
+      },
+      "loader": {
+        "title": "Loader"
+      },
+      "java": {
+        "title": "Pfad zur Java-Executable",
+        "description": "Verwende 'java' für das System-Java oder gib einen absoluten Pfad zu einer ausführbaren Datei an (javaw.exe)."
+      },
+      "ram": {
+        "title": "Maximaler Arbeitsspeicher",
+        "description": "Weise mehr RAM zu, um die Leistung zu verbessern, aber überschreite nicht die Kapazität deines Systems."
+      },
+      "mods": {
+        "title": "Lokale Mods",
+        "description": "Diese Mods (.jar-Dateien) werden zusätzlich zu den Server-Mods geladen. Klicke unten, um einen hinzuzufügen.",
+        "add": "Klicke hier, um .jar-Dateien auszuwählen"
+      }
+    }
+  },
+  "status": {
+    "online": "Online",
+    "offline": "Offline",
+    "average": "Durchschnitt"
+  },
+  "system": {
+    "sync_url": "Server-Synchronisations-URL",
+    "mc_ip": "Minecraft-Server-IP",
+    "folder": "Spiel-Installationsordner",
+    "java_path": "Java-Pfad",
+    "ram_max": "Maximal zugewiesener Arbeitsspeicher"
+  },
+  "footer": {
+    "not_affiliated": "Nicht mit Mojang Studios verbunden",
+    "copyright": "© {{app.year}} {{app.name}}"
+  },
+  "dynamic": {
+    "version_label": "Version {{app.version}} (Build {{app.build}})",
+    "welcome": "Willkommen {{username}}"
+  }
+}
