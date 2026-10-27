@@ -4,6 +4,8 @@ import starlightBlogPlugin from 'starlight-blog';
 import { ion } from "starlight-ion-theme";
 
 export default defineConfig({
+  site:'https://official-afterchange.github.io',
+  base: '/Heretic-Launcher/',
   srcDir: './docs',
   redirects: {
     '/': '/en/'
