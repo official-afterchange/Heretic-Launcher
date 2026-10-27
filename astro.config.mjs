@@ -8,7 +8,7 @@ export default defineConfig({
   base: '/Heretic-Launcher/',
   srcDir: './docs',
   redirects: {
-    '/': '/en/'
+    '/': '/Heretic-Launcher/en/'
   },
   integrations: [
     starlight({
