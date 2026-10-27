@@ -1,0 +1,35 @@
+---
+title: Heretic Launcher
+description: The custom Minecraft client/launcher for the Heretic ecosystem.
+template: splash
+hero:
+  tagline: A modern, customizable launcher designed for dedicated servers.
+  actions:
+    - text: Get Started
+      link: /en/technical/installation/
+      icon: rocket
+      variant: primary
+    - text: Documentation
+      link: /en/technical/architecture/
+      icon: right-arrow
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Explore the Docs
+
+<CardGrid stagger>
+  <Card title="Quick Setup" icon="rocket">
+    Get the launcher up and running on your machine in no time.
+  </Card>
+  <Card title="Architecture" icon="setting">
+    Learn how the Tauri backend works.
+  </Card>
+  <Card title="Heretic Ecosystem" icon="open-book">
+    Discover related projects like the Heretic IDP backend.
+  </Card>
+  <Card title="GitHub Repository" icon="external">
+    Check out the source code and contribute to the project.
+  </Card>
+</CardGrid>

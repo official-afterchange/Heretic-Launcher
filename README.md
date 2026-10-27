@@ -26,4 +26,4 @@ npm run tauri dev
 ```
 
 ## Heretic Ecosystem
-- [Heretic IDP](https://https://github.com/official-afterchange/heretic-idp) - The Identity Provider Backend
+- [Heretic IDP](https://github.com/official-afterchange/heretic-idp) - The Identity Provider Backend
