@@ -1,8 +1,12 @@
 name: Deploy Starlight to Github Pages
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
+    paths:
+      - 'docs/**'
+      - 'astro.config.mjs'
 
 permissions:
   contents: read
