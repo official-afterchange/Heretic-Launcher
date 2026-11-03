@@ -68,9 +68,17 @@
 }
 
 .logo-container img {
-    height: 200px;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: clamp(100px, 30vh, 200px);
+    object-fit: contain;
     filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
     transition: transform 0.3s ease;
+}
+
+.logo-container {
+    width: min(100%, 520px);
 }
 
 .logo-container img:hover {
@@ -102,9 +110,47 @@
     transform: scale(0.95);
 }
 
+.play-button:disabled {
+    cursor: wait;
+    filter: saturate(0.7);
+    opacity: 0.8;
+    transform: none;
+}
+
 .play-button img {
     height: 24px;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.download-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    max-width: min(100%, 520px);
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.download-status.is-active {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.download-spinner {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-top-color: #af4c4c;
+    border-radius: 50%;
+    animation: downloadSpin 0.75s linear infinite;
+}
+
+@keyframes downloadSpin {
+    to { transform: rotate(360deg); }
 }
 
 .play-button b p {
@@ -243,7 +289,6 @@
 
 .mini-btn img {
     height: 14px;
-    filter: invert(1);
 }
 
 /* Responsiveness */
@@ -260,6 +305,26 @@
 }
 
 @media (max-width: 600px) {
+    #home {
+        padding: 24px 16px;
+    }
+
+    .hero-section {
+        padding: 24px;
+    }
+
+    .logo-container img {
+        max-height: 25vh;
+    }
+
+    .main-content {
+        gap: clamp(20px, 5vh, 32px);
+    }
+
+    .play-button {
+        padding: 13px 42px;
+    }
+
     .sidebar-section {
         grid-template-columns: 1fr;
     }

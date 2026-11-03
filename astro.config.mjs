@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import starlightBlogPlugin from 'starlight-blog';
 import { ion } from "starlight-ion-theme";
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site:'https://official-afterchange.github.io',
@@ -11,6 +12,7 @@ export default defineConfig({
     '/': '/Heretic-Launcher/en/'
   },
   integrations: [
+    sitemap(),
     starlight({
       title: 'Heretic Launcher',
       social: [
@@ -41,10 +43,28 @@ export default defineConfig({
           ]
         },
         {
+          label: 'API',
+          translations: { fr: 'API' },
+          items: [
+            'api/mojang',
+            'api/fabric',
+            'api/adoptium'
+          ]
+        },
+        {
           label: 'Dev Log',
           translations: { fr: 'Journal de bord' },
-          items: [{ autogenerate: { directory: 'blog' } }],
-        }
+          items: [
+            { autogenerate: { directory: 'blog' } }
+          ],
+        },
+        {
+          label: 'Roadmap',
+          translations: { fr: 'Feuille de route' },
+          items: [
+            'roadmap/roadmap',
+          ]
+        },
       ],
       plugins: [ion(), starlightBlogPlugin({
         title: {

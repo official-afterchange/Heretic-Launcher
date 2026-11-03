@@ -1,7 +1,5 @@
-import "./App.css";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// Importation des vues séparées
 import Layout from './layout';
 import Home from './pages/home';
 import Info from './pages/info';

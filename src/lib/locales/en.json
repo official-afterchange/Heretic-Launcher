@@ -1,14 +1,23 @@
 {
   "app": {
-    "name": "Butterfly Launcher",
+    "name": "Heretic Launcher",
     "version": "1.0.0",
-    "build": "Stable",
-    "year": "2024",
+    "build": "Beta",
+    "year": "2026",
     "dir": "ltr"
   },
   "ui": {
     "home": {
       "play": "PLAY",
+      "download": {
+        "starting": "Preparing download…",
+        "preparing": "PREPARING…",
+        "ready": "Minecraft client is ready, starting the game…",
+        "started": "Minecraft has started.",
+        "running": "RUNNING…",
+        "usernameRequired": "Add and save a 3–16 character username on the Account page before playing.",
+        "error": "Preparation failed:"
+      },
       "searching": "Searching...",
       "news": "News",
       "server": "Server",
@@ -31,18 +40,36 @@
         "value": "V{{app.version}}",
         "build_label": "Build",
         "build_value": "{{app.build}}",
-        "status": "Stable"
+        "status": "Beta"
       }
     },
     "account": {
       "title": "My Account",
       "description": "Manage your in-game identity",
+      "eyebrow": "PLAYER SPACE",
+      "list": {
+        "title": "My Profiles",
+        "count": "{{count}} profile(s)",
+        "unnamed": "New profile",
+        "local": "Local account",
+        "active": "Active",
+        "add": "Add a profile",
+        "note": "Support for multiple connected accounts is coming soon."
+      },
+      "details": {
+        "eyebrow": "SELECTED PROFILE"
+      },
       "skin": {
         "overview": "Skin Preview"
       },
       "user": {
+        "title": "In-game identity",
+        "description": "Choose the username for this profile.",
         "username": "Username",
-        "update": "Update"
+        "placeholder": "e.g. HereticPlayer",
+        "hint": "Up to 16 characters.",
+        "update": "Save username",
+        "saved": "Saved"
       }
     },
     "settings": {

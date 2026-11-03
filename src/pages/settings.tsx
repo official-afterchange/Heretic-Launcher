@@ -6,7 +6,6 @@ import { t, setLanguage, getLanguage } from '../lib/i18n';
 export default function Settings() {
     const [selectedLang, setSelectedLang] = useState(getLanguage());
 
-    // Écoute les changements globaux de langue pour garder le select synchronisé
     useEffect(() => {
         const handleLangChange = () => {
         setSelectedLang(getLanguage());
@@ -16,11 +15,10 @@ export default function Settings() {
         return () => window.removeEventListener('languagechange', handleLangChange);
     }, []);
 
-    // Fonction appelée directement quand l'utilisateur choisit une option
     const handleLanguageSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newLang = e.target.value;
         setSelectedLang(newLang);
-        setLanguage(newLang); // <-- Applique le changement immédiatement dans i18n
+        setLanguage(newLang);
     };
 
   return (

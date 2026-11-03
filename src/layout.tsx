@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import { t } from './lib/i18n';
-import '../public/assets/styles.css'; // Ou ton fichier CSS global
+import './styles.css'
 
 export default function layout() {
   const location = useLocation();
@@ -10,7 +10,6 @@ export default function layout() {
   const [isMaximized, setIsMaximized] = useState<boolean>(false);
 
   useEffect(() => {
-    // Vérifie si on est dans l'environnement Tauri
     if (typeof window === 'undefined' || !('__TAURI_INTERNALS__' in window)) {
       return;
     }
@@ -36,19 +35,32 @@ export default function layout() {
     };
   }, []);
 
-  const minimizeWindow = () => {
+  const minimizeWindow = async () => {
     if (!appWindow) return;
-    void appWindow.minimize();
+    try {
+      await appWindow.minimize();
+    } catch (error) {
+      console.error('Impossible de minimiser la fenêtre :', error);
+    }
   };
 
-  const toggleFullScreen = () => {
+  const toggleFullScreen = async () => {
     if (!appWindow) return;
-    void appWindow.toggleMaximize();
+    try {
+      await appWindow.toggleMaximize();
+      setIsMaximized(await appWindow.isMaximized());
+    } catch (error) {
+      console.error('Impossible de maximiser la fenêtre :', error);
+    }
   };
 
-  const fermerFenetre = () => {
+  const fermerFenetre = async () => {
     if (!appWindow) return;
-    void appWindow.close();
+    try {
+      await appWindow.close();
+    } catch (error) {
+      console.error('Impossible de fermer la fenêtre :', error);
+    }
   };
 
   return (
@@ -101,6 +113,8 @@ export default function layout() {
             <img src="/assets/img/face.jpg" alt="Player Face" />
             <h1 id="layout-username">Player</h1>
           </div>
+
+          <div className="titlebar-drag-region" data-tauri-drag-region />
 
           <div id="reseaux">
             <a href="https://youtube.com" target="_blank" rel="noreferrer" title="YouTube">

@@ -1,10 +1,14 @@
-// Charge automatiquement tous les .json du dossier locales en récupérant directement leur contenu
-const localeFiles = import.meta.glob<Record<string, any>>('../locales/*.json', {
+type TranslationValue = string | number | boolean | null | undefined;
+type TranslationObject = {
+  [key: string]: TranslationValue | TranslationObject;
+};
+
+const localeFiles = import.meta.glob<TranslationObject>('../locales/*.json', {
   eager: true,
   import: 'default',
 });
 
-const dictionaries: Record<string, Record<string, any>> = {};
+const dictionaries: Record<string, TranslationObject> = {};
 
 for (const path in localeFiles) {
   const lang = path.split('/').pop()?.replace('.json', '');
@@ -13,7 +17,6 @@ for (const path in localeFiles) {
   }
 }
 
-// Récupère la langue sauvegardée ou 'fr' par défaut
 function getInitialLang(): string {
   if (typeof window !== 'undefined') {
     const saved = localStorage.getItem('app_lang');
@@ -24,11 +27,14 @@ function getInitialLang(): string {
 
 let currentLang: string = getInitialLang();
 
-// Applique les attributs sur le DOM au démarrage
 if (typeof document !== 'undefined') {
   const dict = dictionaries[currentLang] || dictionaries['fr'] || {};
   document.documentElement.lang = currentLang;
-  const direction = dict.app?.dir || (currentLang === 'ar' ? 'rtl' : 'ltr');
+  
+  const appObj = dict.app;
+  const appDir = appObj && typeof appObj === 'object' && 'dir' in appObj ? (appObj.dir as string) : undefined;
+  
+  const direction = appDir || (currentLang === 'ar' ? 'rtl' : 'ltr');
   document.documentElement.dir = direction;
 }
 
@@ -39,12 +45,14 @@ export function setLanguage(lang: string) {
       const dict = dictionaries[lang];
       document.documentElement.lang = lang;
 
-      const direction = dict.app?.dir || (lang === 'ar' ? 'rtl' : 'ltr');
+      const appObj = dict.app;
+      const appDir = appObj && typeof appObj === 'object' && 'dir' in appObj ? (appObj.dir as string) : undefined;
+      const direction = appDir || (lang === 'ar' ? 'rtl' : 'ltr');
+      
       document.documentElement.dir = direction;
     }
     localStorage.setItem('app_lang', lang);
 
-    // Déclenche un événement personnalisé pour notifier les composants React de re-render
     window.dispatchEvent(new Event('languagechange'));
   }
 }
@@ -53,8 +61,16 @@ export function getLanguage(): string {
   return currentLang;
 }
 
-function getNestedValue(obj: any, path: string): string | null {
-  return path.split('.').reduce((prev, curr) => (prev && prev[curr] !== undefined ? prev[curr] : null), obj);
+// Remplacement de 'any' par 'unknown' avec vérification de type sécurisée
+function getNestedValue(obj: unknown, path: string): string | null {
+  const result = path.split('.').reduce((prev, curr) => {
+    if (prev && typeof prev === 'object' && curr in prev) {
+      return (prev as Record<string, unknown>)[curr];
+    }
+    return null;
+  }, obj);
+
+  return typeof result === 'string' ? result : null;
 }
 
 export function t(key: string, vars: Record<string, string | number> = {}): string {
@@ -75,7 +91,10 @@ export function t(key: string, vars: Record<string, string | number> = {}): stri
 
   while (match) {
     const appKey = match[1];
-    const replacement = dict.app?.[appKey] ?? `{{app.${appKey}}}`;
+    const appObj = dict.app;
+    const appValue = appObj && typeof appObj === 'object' && appKey in appObj ? appObj[appKey] : undefined;
+    
+    const replacement = typeof appValue === 'string' ? appValue : `{{app.${appKey}}}`;
     text = text.replace(match[0], replacement);
     match = appRegex.exec(text);
   }

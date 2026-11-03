@@ -1,14 +1,23 @@
 {
   "app": {
-    "name": "Butterfly Launcher",
+    "name": "Heretic Launcher",
     "version": "1.0.0",
-    "build": "Stable",
-    "year": "2024",
+    "build": "Beta",
+    "year": "2026",
     "dir": "ltr"
   },
   "ui": {
     "home": {
       "play": "JOUER",
+      "download": {
+        "starting": "Préparation du téléchargement…",
+        "preparing": "PRÉPARATION…",
+        "ready": "Client Minecraft prêt, démarrage du jeu…",
+        "started": "Minecraft a démarré.",
+        "running": "EN COURS…",
+        "usernameRequired": "Ajoute et enregistre un pseudo de 3 à 16 caractères dans la page Compte avant de jouer.",
+        "error": "Échec de la préparation :"
+      },
       "searching": "Recherche...",
       "news": "Actualités",
       "server": "Serveur",
@@ -31,18 +40,36 @@
         "value": "V{{app.version}}",
         "build_label": "Build",
         "build_value": "{{app.build}}",
-        "status": "Stable"
+        "status": "Beta"
       }
     },
     "account": {
       "title": "Mon Compte",
       "description": "Gérez votre identité en jeu",
+      "eyebrow": "ESPACE JOUEUR",
+      "list": {
+        "title": "Mes profils",
+        "count": "{{count}} profil(s)",
+        "unnamed": "Nouveau profil",
+        "local": "Compte local",
+        "active": "Actif",
+        "add": "Ajouter un profil",
+        "note": "La gestion de plusieurs comptes connectés arrivera prochainement."
+      },
+      "details": {
+        "eyebrow": "PROFIL SÉLECTIONNÉ"
+      },
       "skin": {
         "overview": "Aperçu du Skin"
       },
       "user": {
+        "title": "Identité en jeu",
+        "description": "Choisissez le pseudo utilisé pour ce profil.",
         "username": "Nom d'utilisateur",
-        "update": "Mettre à jour"
+        "placeholder": "Ex. HereticPlayer",
+        "hint": "16 caractères maximum.",
+        "update": "Enregistrer le pseudo",
+        "saved": "Enregistré"
       }
     },
     "settings": {

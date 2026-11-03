@@ -10,24 +10,32 @@
     "tauri": "tauri",
     "docs:dev": "astro dev",
     "docs:build": "astro build",
-    "docs:preview": "astro preview"
+    "docs:preview": "astro preview",
+    "lint": "eslint src/"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@astrojs/starlight": "^0.42.7",
     "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-opener": "^2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.18.4",
+    "skin3d": "^0.2.0",
     "starlight-blog": "^0.30.2",
     "starlight-ion-theme": "^2.4.1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@tauri-apps/cli": "^2",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^6.0.2",
+    "eslint": "^10.13.0",
+    "globals": "^17.13.0",
+    "jiti": "^2.7.0",
     "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.1",
     "vite": "^8.0.16"
   }
 }

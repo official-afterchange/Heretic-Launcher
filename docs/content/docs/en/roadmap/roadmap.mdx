@@ -1,0 +1,113 @@
+---
+title: Roadmap & DevOps Culture
+description: Planning, CI/CD pipeline, builds, and DevOps lifecycle for Heretic Launcher (Offline Mode).
+head:
+  - tag: title
+    content: Planning & DevOps
+---
+
+import { Card, CardGrid, Steps, Badge, Tabs, TabItem } from '@astrojs/starlight/components';
+
+Lifecycle documentation and roadmap for the **Heretic Launcher** project (Desktop Client). Development is focused on **Offline / Local Direct Launch** and relies on a **DevOps** approach (build automation, CI validation, cross-platform bundling, and release management).
+
+---
+
+## Environments & Infrastructure Status
+
+<CardGrid>
+  <Card title="Desktop Client (Tauri v2 / Rust)" icon="laptop">
+    <Badge text="Core & Offline Engine" variant="note" />
+    <br />
+    Rust launcher engine development (process management, JVM runtime, and args) along with local profile storage.
+  </Card>
+  <Card title="CI/CD Pipeline & Artifacts" icon="setting">
+    <Badge text="Matrix Build Pipeline" variant="tip" />
+    <br />
+    Native compilation and automated installer generation (Windows `.exe`, Linux `.AppImage` / `.deb`).
+  </Card>
+</CardGrid>
+
+---
+
+## DevOps Roadmap & Sprints
+
+<Tabs>
+  <TabItem label="Sprint 1 — Base Arch & CI Tooling">
+    <Badge text="In Progress" variant="note" />
+
+    ### Infrastructure & DevEnv
+    - [x] Tauri v2 project initialization with Svelte frontend & Rust backend
+    - [x] Linters & formatters configuration (`clippy` / `cargo fmt` for Rust, `ESLint` / `Prettier` for Svelte)
+    - [ ] Initial CI pipeline: Automated validation on every Push / Merge Request (linting, build dry-run, dependency check)
+
+    ### Core Offline & UI
+    - [x] Svelte interface for local username and skin management
+    - [x] Secure local storage for launcher configurations and offline profiles (JSON / local SQLite)
+    - [ ] Detection and validation of locally installed Java Runtimes (Java 8, 17, 21+)
+
+  </TabItem>
+
+  <TabItem label="Sprint 2 — Game Engine & Build Automation">
+    <Badge text="Upcoming" variant="default" />
+
+    ### Local Download & Extraction
+    - [ ] Mojang assets and libraries downloader in Rust (async with `tokio` + SHA1 verification)
+    - [ ] Dynamic Java *Classpath* assembly and Minecraft process execution command generation
+    - [ ] Real-time game stdout/stderr log capturing for integrated console display
+
+    ### Release Automation (CI/CD)
+    - [ ] Matrix compilation pipeline (Windows & Linux cross-compilation via GitHub Actions / GitLab CI)
+    - [ ] Executable signing and automated installation bundle packaging
+    - [ ] Automatic package publishing to Git repository *Releases*
+
+  </TabItem>
+
+  <TabItem label="Sprint 3 — Modding, Profiles & Polish">
+    <Badge text="Upcoming" variant="default" />
+
+    ### Isolation & Modding
+    - [ ] Multi-instance manager (isolated `.minecraft` folders per version)
+    - [ ] Automatic installation support for Fabric / Forge bootstrappers
+    - [ ] Advanced settings UI (RAM allocation, custom JVM arguments, resolution)
+
+    ### Stability & Local Telemetry
+    - [ ] Clean process crash management with automated local crash log saving
+    - [ ] Rust final binary size optimization (stripping, LTO)
+
+  </TabItem>
+</Tabs>
+
+---
+
+## DevOps Loop (Continuous Lifecycle)
+
+<Steps>
+
+1. **Plan & Code**  
+   Modular development (Rust for performance/system, Svelte for UI). Pre-commit hooks enforcement (`cargo fmt`, `prettier`, `clippy`).
+
+2. **Build & Test (CI Pipeline)**  
+   On every push to `main` or MR creation: automated execution of Rust unit tests, TypeScript/Svelte type validation, and Tauri compilation check.
+
+3. **Release & Package (CD Pipeline)**  
+   Automatic creation of installation artifacts whenever a version tag (e.g., `v0.1.0`) is pushed.
+
+4. **Operate & Distribute**  
+   Distribution of ready-to-use executables with full 100% offline mode support.
+
+</Steps>
+
+---
+
+## Task Tracking & Automation
+
+| Component | Task / Feature | Priority | Tech / Tool | Status |
+| :--- | :--- | :---: | :---: | :---: |
+| **UI** | Offline Profile Form (Username/Skin) | 🔴 High | Svelte / Tailwind | <Badge text="Completed" variant="success" /> |
+| **Launcher** | Tauri IPC & Local Config Storage | 🔴 High | Rust / Tauri IPC | <Badge text="In Progress" variant="note" /> |
+| **CI/CD** | Linting Pipeline + Build Validation | 🔴 High | GitHub Actions / GitLab CI | <Badge text="In Progress" variant="note" /> |
+| **Engine** | Multithreaded Downloader (Assets/Libs) | 🔴 High | Rust (`tokio` / `reqwest`) | <Badge text="To Do" variant="caution" /> |
+| **Engine** | Process Builder (Launch Minecraft) | 🔴 High | Rust (`std::process::Command`) | <Badge text="To Do" variant="caution" /> |
+| **CI/CD** | Multi-Platform Release Pipeline | 🔴 High | Tauri CLI Matrix | <Badge text="To Do" variant="caution" /> |
+| **Modding** | Fabric Installer / Instance Isolation | 🟡 Medium | Rust | <Badge text="To Do" variant="caution" /> |
+| **UX** | Integrated Game Log Console | 🟢 Low | Svelte / Tauri Events | <Badge text="Pending" variant="default" /> |
